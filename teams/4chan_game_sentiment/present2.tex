@@ -1,0 +1,205 @@
+
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+
+\usetheme{Warsaw}
+
+
+
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline}
+
+%\setbeamertemplate{footline}[page number] 
+
+\setbeamertemplate{navigation symbols}{} }
+
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+
+
+\title[Video games' success]{Games' success analysis and visualization}
+
+\author{Ahmed Elkatib, Kaan Ozgunay, Abdulrahman Shabana} 
+\institute[CSULA] 
+{
+California State University Los Angeles \\ 
+
+\medskip
+
+}
+\date{\today} 
+
+\begin{document}
+
+\begin{frame}
+\titlepage 
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline} 
+
+\tableofcontents 
+
+\end{frame}
+
+
+%	PRESENTATION SLIDES
+
+%------------------------------------------------
+\section{Data acquisition and storage} 
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{API's Used to acquire data}
+\begin{block}{4Chan :  www.4chan.org }
+Using 4chan's API "4ch" and interacting with it with a python wrapper to get all the posts from any given thread and board.
+\end{block}
+
+\begin{block}{MetaCritics :  www.metacritic.com}
+Using BeautifulSoup to scrape the website to get the release date, Metascore and user score of any given game.
+\end{block}
+
+\begin{block}{How the data is stored}
+After  manipulating the conversations towards certain games, conversations are saved in text files alongside with Metacritic scores, release dates and game names .
+\end{block}
+\end{frame}
+
+
+
+%------------------------------------------------
+\section{Data analysis}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Data Analysis}
+\begin {itemize}
+
+\item Filtering previously saved conversations to extract a single score for a single game from the thread
+
+\item Differences between 4chan scores and metacritic scores are calculated and applied to other metacritic scores to get a realistic score for any given game
+
+\item opencv library's k nearest neighbors method is applied to our data, with the attributes game genre, game release date and game average score
+
+
+
+
+\end {itemize}
+
+\end {frame}
+
+
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Analysis graph}
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=4in]{knn.png}
+  \caption[Close up of ]
+   {Given the genre and the release date of a game, the knn method of the opencv library will determine it's nearest neighbors and assign it a score, and plot it}
+\end{figure}
+
+\end {frame}
+%------------------------------------------------
+
+\begin{frame}[fragile] 
+\frametitle{Game's Attributes}
+\begin{enumerate}
+\item{Genre (color)}
+\item{Release Month (X-axis)}
+\item{Metacritic's rating (Y-axis)}
+    \end{enumerate}
+
+ %\begin{enumerate}
+  %\item{blurb}
+   % \begin{enumerate}
+    %\item{foo}
+    %\end{enumerate}
+
+
+\end{frame}
+
+%\begin{figure}
+%\centering
+%    \includegraphics[width=0.3\textwidth,natwidth=10,natheight=42]{4chan2.jpg}
+%\end{figure}
+
+%\column{.5\textwidth} % Right column and width
+
+
+
+
+%------------------------------------------------
+
+
+%\begin{frame}
+%\frametitle{K-NN algorithm}
+%\begin{theorem}[Mass--energy equivalence]
+%$E = mc^2$
+%\end{theorem}
+%\end{frame}
+
+%------------------------------------------------
+\section{Data visualization}
+%------------------------------------------------
+\begin{frame}[fragile] 
+\frametitle{Visualization}
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=4in]{vis.jpg}
+ 
+\end{figure}
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Games over time}
+
+\begin{figure}[hb]
+  \centering
+  \includegraphics[width=4in]{mona.jpeg}
+ 
+\end{figure}
+
+
+\end {frame}
+
+
+
+%------------------------------------------------
+\section{Observations and predictions}
+%------------------------------------------------
+
+
+
+
+\begin{frame}[fragile] 
+\frametitle{Observations/Predictions}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Questions}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=2in]{bigdata.jpg}
+ 
+\end{figure}
+
+
+
+
+\end{frame}
+
+
+
+\end{document}
