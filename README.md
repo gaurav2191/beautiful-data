@@ -23,6 +23,15 @@ directory structure
 
 The bd_ directories contain source code for the four modules of project; the website directory contains the static web-related documents (e.g., .html, .css, and .js files); the bin directory contains wrapper scripts that can be used to execute the project.  In theory, code within the bd_ directories should never be directly executed.
 
+latex setup
+--------------
+
+Texmaker 3.2 was used to create the project.
+
+The following template was used as requested: http://www.latextemplates.com/template/journal-article
+
+If errors are returned in the the compiling of the file, that is probably due to an uninstalled font error. Please make sure to install texlive-fonts-recommended.
+
 References:
 
 [1] Calderone, Jean-Paul.  "Filesystem structure of a Python project" http://as.ynchrono.us/2007/12/filesystem-structure-of-python-project_21.html

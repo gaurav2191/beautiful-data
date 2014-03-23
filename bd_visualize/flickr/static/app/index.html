@@ -1,0 +1,127 @@
+<!doctype html>
+<html ng-app="lazyApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ng-Flickr</title>
+
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" href="/app/lib/semantic-ui/css/semantic.css">
+    <link rel="stylesheet" href="/app/lib/animate.css/animate.css">
+    <link rel="stylesheet" href="/app/lib/angular-loading-bar/loading-bar.css">
+    <link rel="stylesheet" href="/app/css/styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="ui computer only grid blue text menu">
+      <div class="header large pink item">
+      <i class="flickr icon"></i> <strong class="">Flickr Data</strong>
+      </div>
+      <a class="item" href="#/home" active-link="active">
+        <i class="home icon"></i> Home
+      </a>
+      <a class="item" href="#/location" active-link="active">
+        <i class="location icon"></i> Location Statistic
+      </a>
+      <a class="item" href="#/tag" active-link="active">
+        <i class="tag icon"></i> Tag Statistic
+      </a>
+      <a class="item" href="#/time" active-link="active">
+        <i class="time icon"></i> Time Statistic
+      </a>
+      <a class="item" href="#/map" active-link="active">
+        <i class="map icon"></i> Map Statistic
+      </a>
+    </header>
+
+    <header class="ui tablet only grid blue text menu">
+      <div class="header large pink item">
+      <i class="flickr icon"></i> <strong class="">ng-Flickr</strong>
+      </div>
+      <a class="item" href="#/home" active-link="active">
+        <i class="home icon"></i> Home
+      </a>
+      <a class="item" href="#/location" active-link="active">
+        <i class="location icon"></i> Location
+      </a>
+      <a class="item" href="#/tag" active-link="active">
+        <i class="tag icon"></i> Tag
+      </a>
+      <a class="item" href="#/time" active-link="active">
+        <i class="time icon"></i> Time
+      </a>
+      <a class="item" href="#/map" active-link="active">
+        <i class="map icon"></i> Map
+      </a>
+    </header>
+
+    <header class="ui mobile only grid blue text menu">
+      <div class="header large pink item">
+      <i class="flickr icon"></i>
+      </div>
+      <a class="item" href="#/home" active-link="active">
+        <i class="home icon"></i>
+      </a>
+      <a class="item" href="#/location" active-link="active">
+        <i class="location icon"></i>
+      </a>
+      <a class="item" href="#/tag" active-link="active">
+        <i class="tag icon"></i>
+      </a>
+      <a class="item" href="#/time" active-link="active">
+        <i class="time icon"></i>
+      </a>
+      <a class="item" href="#/map" active-link="active">
+        <i class="map icon"></i>
+      </a>
+    </header>
+
+    <div class="ui grid body-container" ng-view></div>
+
+    <!-- Read the javascript at the end of the body tag to increase the page load speed -->
+    <script type="text/javascript" src="/app/lib/jquery/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="/app/lib/jquery/jquery.csv-0.71.js"></script>
+    <script type="text/javascript" src="/app/lib/semantic-ui/javascript/semantic.js"></script>
+    <script type="text/javascript" src="/app/lib/highstock/js/highstock.js"></script>
+    <script type="text/javascript" src="/app/js/highstock/themes/dark-transparent.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi2JhMTiQuQdTv55x8o35i-A19kFzyep4&sensor=false"></script>
+    <script type="text/javascript" src="/app/lib/underscore/underscore.js"></script>
+    <script type="text/javascript" src="/app/lib/wordcloud2.js/wordcloud2.js"></script>
+
+    <!-- Feel the power of Angular! -->
+    <script type="text/javascript" src="/app/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/app/lib/angular/angular-route.js"></script>
+    <script type="text/javascript" src="/app/lib/angular/angular-resource.js"></script>
+    <script type="text/javascript" src="/app/lib/angular/angular-animate.js"></script>
+    <script type="text/javascript" src="/app/lib/angular/angular-google-maps.min.js"></script>
+
+    <script type="text/javascript" src="/app/lib/angular-loading-bar/loading-bar.js"></script>
+
+    <script type="text/javascript" src="/app/lib/angulartics/angulartics.min.js"></script>
+    <script type="text/javascript" src="/app/lib/angulartics/angulartics-ga.min.js"></script>
+
+    <script type="text/javascript" src="/app/js/app.js"></script>
+    <script type="text/javascript" src="/app/js/services.js"></script>
+    <script type="text/javascript" src="/app/js/directives.js"></script>
+    <script type="text/javascript" src="/app/js/controllers/HomeCtrl.js"></script>
+    <script type="text/javascript" src="/app/js/controllers/LocationCtrl.js"></script>
+    <script type="text/javascript" src="/app/js/controllers/TagCtrl.js"></script>
+    <script type="text/javascript" src="/app/js/controllers/TimeCtrl.js"></script>
+    <script type="text/javascript" src="/app/js/controllers/MapCtrl.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-48785486-1', 'lazy-flickr-map.appspot.com');
+    </script>
+
+  </body>
+</html>
