@@ -28,5 +28,5 @@ for lines in data:
 
 lis.sort(key = itemgetter(2), reverse = False)
 
-for l in range(0,5000):
+for l in range(0,5000): 
     print lis[l],"\n"
