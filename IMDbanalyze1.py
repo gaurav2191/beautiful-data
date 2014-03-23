@@ -27,7 +27,7 @@ class ImdbRating:
     # constant
     BASE_URL = 'http://www.imdb.com'
  
-    def __init__(self, title):
+    def __init__(self, title): 
         self.title = title
         self._process()
  
