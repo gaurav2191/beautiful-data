@@ -27,7 +27,7 @@ def linearRegression(xi,y):
     show()
 
 f=open('ratings.list')
-lines=f.readlines()
+lines=f.readlines() 
 data=lines[27:433870]
 f.close()
 lis={}
