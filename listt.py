@@ -32,7 +32,7 @@ def get():
             try:
                 movie['year'] = hxs.xpath('//*[@id="overview-top"]/h1/span[3]/a/text()')[0].strip()
             except IndexError:
-                movie['year'] = ""
+                movie['year'] = "" 
         try:
             movie['certification'] = hxs.xpath('//*[@id="overview-top"]/div[2]/span[1]/@title')[0].strip()
         except IndexError:
