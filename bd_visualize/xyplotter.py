@@ -7,8 +7,8 @@ import pylab as pl
 def xyplotter(args, array):
     X = array[:,0]
     Y = np.delete(array, 0, axis=1)
-    for i in Y:
-        print i
+    #for i in Y:
+    #    print i
 
     # shape and color
     shape = []
