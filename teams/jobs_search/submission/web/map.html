@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <link href="css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="js/raphael.min.js"></script>
+        <script src="js/kartograph.min.js"></script>
+        <script src="js/chroma.min.js"></script>
+        
+        <script type="text/javascript">
+        $(function() {
+            var availableTags = ["featured"];
+            
+            var c = $('#map');
+            c.height(c.width()*.50);
+            var map = window.m = $K.map("#map");
+            
+            map.loadMap('map-usa.svg', function() {
+                map.addLayer('usa', {
+                    styles: {
+                        fill: '#dfdcdc',
+                        stroke: '#fff'
+                    }
+                });
+                
+            }, { padding: -5 });
+
+            function updateMap (map, isUpdateMode,url) {
+                if(isUpdateMode == true)
+                    map.removeSymbols();
+                console.log(url);
+                $.ajax({
+                    url: url,
+                    dataType: 'json',
+                    success: function(location_number_of_jobs) {
+                        // count total number of this jobs.
+                        totalNumJobs = 0
+                        $.each(location_number_of_jobs, function(i, val) {
+                            totalNumJobs = totalNumJobs + val['numberOfJobs'];
+                        });
+
+                        $('#total').text(totalNumJobs);
+
+                        symbols = map.addSymbols({
+                            type: $K.Bubble,
+                            data: location_number_of_jobs,
+                            location: function(data) {
+                                // console.log(data.ll)
+                                return data.ll;
+                            },
+                            radius: function(data) {
+                                // return scale(data['numberOfJobs'])*2;
+                                return data['numberOfJobs']*1/2 + 2;
+                            },
+                            title: function(data) { return $.trim(data.City)+', '+data.State+' ('+ 
+                                data['numberOfJobs']+')'; },
+                            sortBy: 'radius desc',
+                            style: 'fill:#47B526; stroke: #42A60B; fill-opacity: 0.35;'
+                        });
+                    }
+                });
+            }
+
+            dir = '/soCollect/';
+            url = dir + 'featured.json';
+            $('#tags').val('featured');
+            updateMap(map, false,url);
+            
+            $("#tags").autocomplete({
+                source: availableTags,
+                // source: 'tag.txt',
+                select: function(event, ui) {
+                    url = dir + ui.item.value + '.json'
+                    updateMap(map, true, url)
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="ui-widget">
+          <label for="tags">Keywords / Tags </label>
+          <input id="tags">
+          <span id="total"></span><span> jobs</span>
+        </div>
+        <div style="position:relative">
+            <div id="map">
+        </div>
+    </body>
+</html>
