@@ -1,0 +1,1 @@
+["android", "c++", "cassandra", "featured", "hadoop", "hbase", "java", "javascript", "mahout", "mongodb", "python", "scala", "scientist", "software engineer", "web developer"]

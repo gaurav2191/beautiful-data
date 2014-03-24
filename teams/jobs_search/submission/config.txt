@@ -1,0 +1,3 @@
+url=http://cs1.calstatela.edu/~jtran/graphs/
+targetFile=none
+statsFile=stats.txt
